@@ -268,13 +268,13 @@ function Dashboard({ isLoggedIn, setIsLoggedIn }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Get userId from sessionStorage (set in Login.jsx)
-  const userId = sessionStorage.getItem("userId");
+  // Get userId from localStorage (set in Login.jsx)
+  const userId = localStorage.getItem("userId");
 
   // Restore login state if page refreshed
   useEffect(() => {
     if (!isLoggedIn) {
-      const savedLogin = sessionStorage.getItem("isLoggedIn") === "true";
+      const savedLogin = localStorage.getItem("isLoggedIn") === "true";
       if (savedLogin) {
         setIsLoggedIn(true);
       }
