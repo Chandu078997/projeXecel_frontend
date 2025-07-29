@@ -194,7 +194,7 @@ function ProjectDetails() {
   const checkEnrollment = () => {
     if (!userId) return;
 
-    fetch(`http://localhost:8085/projectwork/api/projects/enrolled?userId=${userId}`)
+    fetch(`https://projexcel-1.onrender.com/api/projects/enrolled?userId=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         const enrolled = data.some((p) => p.id === parseInt(projectId));
@@ -205,7 +205,7 @@ function ProjectDetails() {
   const fetchSubmission = () => {
     if (!userId) return;
 
-    fetch(`https://projexcel-production.up.railway.app/projectwork/api/projects/submissions/${projectId}?userId=${userId}`)
+    fetch(`https://projexcel-1.onrender.com/api/projects/submissions/${projectId}?userId=${userId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length > 0) {
@@ -219,7 +219,7 @@ function ProjectDetails() {
   };
 
   useEffect(() => {
-    fetch(`https://projexcel-production.up.railway.app/projectwork/api/projects/details/${projectId}`)
+    fetch(`https://projexcel-1.onrender.com/api/projects/details/${projectId}`)
       .then((res) => res.json())
       .then((data) => {
         setProject(data);
@@ -253,7 +253,7 @@ function ProjectDetails() {
       return;
     }
 
-    fetch(`https://projexcel-production.up.railway.app/projectwork/api/projects/enroll/${projectId}?userId=${userId}`, {
+    fetch(`https://projexcel-1.onrender.com/api/projects/enroll/${projectId}?userId=${userId}`, {
       method: "POST",
     })
       .then((res) => res.text())
@@ -284,7 +284,7 @@ function ProjectDetails() {
     }
 
     fetch(
-      `https://projexcel-production.up.railway.app/projectwork/api/projects/submit/${projectId}?userId=${userId}&submissionLink=${encodeURIComponent(submissionLink)}`,
+      `https://projexcel-1.onrender.com/api/projects/submit/${projectId}?userId=${userId}&submissionLink=${encodeURIComponent(submissionLink)}`,
       { method: "POST" }
     )
       .then((res) => res.text())
