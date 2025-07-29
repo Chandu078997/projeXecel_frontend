@@ -58,7 +58,7 @@ function Projects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`https://projexcel-production.up.railway.app/projectwork/api/projects/domain/${domainId}`)
+    fetch(`https://projexcel-1.onrender.com/api/projects/domain/${domainId}`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);
