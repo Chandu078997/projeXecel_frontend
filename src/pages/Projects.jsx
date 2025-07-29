@@ -81,7 +81,7 @@ function Projects() {
 
   return (
     <div className="page-container1">
-      {/* Title + Search Bar */}
+      
       <div
         style={{
           display: "flex",
@@ -106,7 +106,7 @@ function Projects() {
         />
       </div>
 
-      {/* Project Cards */}
+     
       {loading ? (
         <p>Loading projects...</p>
       ) : filteredProjects.length === 0 ? (
