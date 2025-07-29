@@ -131,7 +131,7 @@ function Home({ isLoggedIn }) {
     }
 
     setLoading(true);
-    fetch("https://projexcel-production.up.railway.app/projectwork/domains")
+    fetch("https://projexcel-1.onrender.com/domains")
       .then((res) => res.json())
       .then((data) => {
         setDomains(data);
