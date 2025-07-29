@@ -291,7 +291,7 @@ function Dashboard({ isLoggedIn, setIsLoggedIn }) {
     }
 
     setLoading(true);
-    fetch(`http://localhost:8085/projectwork/api/projects/enrolled?userId=${userId}`)
+    fetch(`https://projexcel-production.up.railway.app/projectwork/api/projects/enrolled?userId=${userId}`)
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch projects");
         return res.json();
