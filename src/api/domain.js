@@ -1,4 +1,4 @@
-const BASE_URL = "https://projexcel-production.up.railway.app/projectwork";
+const BASE_URL = "https://projexcel-1.onrender.com";
 
 export async function fetchDomains() {
   const res = await fetch(`${BASE_URL}/domains`);
