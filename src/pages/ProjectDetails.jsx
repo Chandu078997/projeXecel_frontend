@@ -188,8 +188,8 @@ function ProjectDetails() {
   const [emailSent, setEmailSent] = useState(false);
 
   // Get actual logged-in user from sessionStorage
-  const userId = sessionStorage.getItem("userId");
-  const userEmail = sessionStorage.getItem("userEmail");
+  const userId = localStorage.getItem("userId");
+  const userEmail = localStorage.getItem("userEmail");
 
   const checkEnrollment = () => {
     if (!userId) return;
