@@ -24,7 +24,7 @@ export const loginUser = async (email, password) => {
 */// Set your backend base URL (keep /projectwork since your backend uses it)
 
 // Deployed backend URL
-const BASE_URL = "https://projexcel-production-5f4e.up.railway.app/projectwork";
+const BASE_URL = "https://projexcel-production.up.railway.app/projectwork";
 
 // Register new user
 export const registerUser = async (form) => {
