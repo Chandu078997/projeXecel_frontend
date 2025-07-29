@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8085/projectwork";
+const BASE_URL = "https://projexcel-production.up.railway.app/projectwork";
 
 export async function fetchDomains() {
   const res = await fetch(`${BASE_URL}/domains`);
