@@ -170,7 +170,7 @@ function Projects() {
   );
 
   return (
-    <div className="page-container1">
+    <div className="page-container">
       {/* Title + Search Bar */}
       <div
         style={{
