@@ -54,15 +54,13 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
+@media (max-width: 768px) {
+  body, 
+  .project-card, 
+  .project-card h3, 
+  .project-card p, 
+  .project-card b,
+  a, h1, h2, h3, h4, h5, h6 {
+    color: #000 !important;  /* Force black text on mobile */
   }
 }
