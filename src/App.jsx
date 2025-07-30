@@ -305,8 +305,7 @@ function App() {
 
 export default App;
 */
-
-import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -333,53 +332,51 @@ function App() {
   }
 
   return (
-    <Router>
-      <div className="app-container">
-        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-        <div className="content">
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/about" element={<About />} />
+    <div className="app-container">
+      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+      <div className="content">
+        <Routes>
+          {/* Public Routes */}
+          <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
 
-            {/* Private Routes */}
-            {isLoggedIn ? (
-              <>
-                <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-                <Route
-                  path="/dashboard"
-                  element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
-                />
-                <Route path="/projects/:domainId" element={<Projects />} />
-                <Route path="/project/:projectId" element={<ProjectDetails />} />
-                <Route path="*" element={<Navigate to="/" />} />
-              </>
-            ) : (
-              <>
-                <Route
-                  path="/"
-                  element={<p style={{ textAlign: "center" }}>Please log in to access Home.</p>}
-                />
-                <Route
-                  path="/dashboard"
-                  element={<p style={{ textAlign: "center" }}>Please log in to access Dashboard.</p>}
-                />
-                <Route
-                  path="/projects/:domainId"
-                  element={<p style={{ textAlign: "center" }}>Please log in to access Projects.</p>}
-                />
-                <Route
-                  path="/project/:projectId"
-                  element={<p style={{ textAlign: "center" }}>Please log in to view Project Details.</p>}
-                />
-                <Route path="*" element={<Navigate to="/login" />} />
-              </>
-            )}
-          </Routes>
-        </div>
+          {/* Private Routes */}
+          {isLoggedIn ? (
+            <>
+              <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+              <Route
+                path="/dashboard"
+                element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+              />
+              <Route path="/projects/:domainId" element={<Projects />} />
+              <Route path="/project/:projectId" element={<ProjectDetails />} />
+              <Route path="*" element={<Navigate to="/" />} />
+            </>
+          ) : (
+            <>
+              <Route
+                path="/"
+                element={<p style={{ textAlign: "center" }}>Please log in to access Home.</p>}
+              />
+              <Route
+                path="/dashboard"
+                element={<p style={{ textAlign: "center" }}>Please log in to access Dashboard.</p>}
+              />
+              <Route
+                path="/projects/:domainId"
+                element={<p style={{ textAlign: "center" }}>Please log in to access Projects.</p>}
+              />
+              <Route
+                path="/project/:projectId"
+                element={<p style={{ textAlign: "center" }}>Please log in to view Project Details.</p>}
+              />
+              <Route path="*" element={<Navigate to="/login" />} />
+            </>
+          )}
+        </Routes>
       </div>
-    </Router>
+    </div>
   );
 }
 
