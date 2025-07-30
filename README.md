@@ -68,6 +68,14 @@ A complete **Java Full Stack** application that allows users to register, log in
 
 
 
+### 🔐 Login Page
+![Login](./src/assets/login.png)
+
+### 📁 Projects Page
+![Projects](./src/assets/projects.png)
+
+### 📄 Project Details Page
+![Project Details](./src/assets/ProjectDetails.png)
 ## 🧰 How to Run Locally
 
 ### 🔧 Backend (Spring Boot)
