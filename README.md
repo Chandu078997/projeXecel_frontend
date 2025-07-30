@@ -18,8 +18,8 @@ A complete **Java Full Stack** application that allows users to register, log in
 
 | Application | URL |
 |-------------|-----|
-| Frontend    | [View on Netlify](https://your-frontend-url.netlify.app) |
-| Backend     | [View on Render](https://your-backend-url.onrender.com) |
+| Frontend    | [View on Netlify](https://projetxecelfrontend.netlify.app/) |
+| Backend     | [View on Render](https://projexcel-1.onrender.com/) |
 
 ---
 
