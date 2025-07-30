@@ -49,6 +49,7 @@
   margin: 0;
   margin-top: 5px;
 }
+/*
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -61,5 +62,37 @@
     margin-top: 10px;
     flex-direction: column;
     gap: 15px;
+  }
+}*/
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+
+    /* Force the blue background to span full width */
+    width: 100%;
+    align-items: stretch;
+    padding: 10px 0;
+  }
+
+  /* Stack the links vertically and make them fill width */
+  .navbar ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar ul li a {
+    display: block;
+    padding: 10px 0;
+    color: #fff; /* Ensure links are readable on blue background */
+  }
+
+  /* Center logo and tagline fully */
+  .logo-container {
+    align-items: center;
+    width: 100%;
   }
 }
