@@ -222,7 +222,7 @@ export default App;
 
 
 */
-
+/*
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
@@ -257,16 +257,15 @@ function App() {
 
         <div className="content">
           <Routes>
-            {/* Public Routes */}
+            
             <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<About />} />
 
-            {/* Private Routes */}
             {isLoggedIn ? (
               <>
                 <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
-                {/* FIXED: Pass props to Dashboard */}
+               
                 <Route
                   path="/dashboard"
                   element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
@@ -277,7 +276,87 @@ function App() {
               </>
             ) : (
               <>
-                {/* Show message before login */}
+               
+                <Route
+                  path="/"
+                  element={<p style={{ textAlign: "center" }}>Please log in to access Home.</p>}
+                />
+                <Route
+                  path="/dashboard"
+                  element={<p style={{ textAlign: "center" }}>Please log in to access Dashboard.</p>}
+                />
+                <Route
+                  path="/projects/:domainId"
+                  element={<p style={{ textAlign: "center" }}>Please log in to access Projects.</p>}
+                />
+                <Route
+                  path="/project/:projectId"
+                  element={<p style={{ textAlign: "center" }}>Please log in to view Project Details.</p>}
+                />
+                <Route path="*" element={<Navigate to="/login" />} />
+              </>
+            )}
+          </Routes>
+        </div>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
+*/
+
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Projects from "./pages/Projects";
+import ProjectDetails from "./pages/ProjectDetails";
+import Dashboard from "./pages/Dashboard";
+import "./App.css";
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loggedIn = sessionStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+    setLoading(false);
+  }, []);
+
+  if (loading) {
+    return <p style={{ textAlign: "center", marginTop: "50px" }}>Loading...</p>;
+  }
+
+  return (
+    <Router>
+      <div className="app-container">
+        <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        <div className="content">
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} />
+
+            {/* Private Routes */}
+            {isLoggedIn ? (
+              <>
+                <Route path="/" element={<Home isLoggedIn={isLoggedIn} />} />
+                <Route
+                  path="/dashboard"
+                  element={<Dashboard isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+                />
+                <Route path="/projects/:domainId" element={<Projects />} />
+                <Route path="/project/:projectId" element={<ProjectDetails />} />
+                <Route path="*" element={<Navigate to="/" />} />
+              </>
+            ) : (
+              <>
                 <Route
                   path="/"
                   element={<p style={{ textAlign: "center" }}>Please log in to access Home.</p>}
